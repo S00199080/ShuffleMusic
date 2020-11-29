@@ -41,7 +41,7 @@ namespace ShuffleMusic
             }
         }
 
-        private static void Shuffle(List<> playlist)
+        private static void Shuffle(List<Song> playlist)
         {
             Random rng = new Random();
             int numberOfSongs = playlist.Count;
