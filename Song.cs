@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShuffleMusic
 {
-    class Song
+    public class Song:IComparable
     {
         public string Title { get; set; }
         public string Artist { get; set; }
@@ -31,6 +31,20 @@ namespace ShuffleMusic
         public override string ToString()
         {
             return string.Format($"{Title} {Artist} {Duration} {MusicGenre}");
+        }
+
+        public int CompareTo(object other)
+        {
+            Song that = (Song)other;
+
+            int returnValue = this.Artist.CompareTo(that.Artist);
+
+            if (returnValue == 0)
+            {
+                returnValue = this.Title.CompareTo(that.Title);
+            }
+
+            return returnValue;
         }
     }
 
